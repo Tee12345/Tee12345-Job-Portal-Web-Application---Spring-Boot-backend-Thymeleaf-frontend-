@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" and dir="ltr" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/font-awesome.min.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/styles.css}"/>
+</head>
+
+<body class="background">
+<nav class="main_div">
+    <div class="logo_left">
+        <label class="logo">
+            ManyJobs
+        </label>
+        <!-- I am taking .com out -->
+        <!-- <label class="logo_com">
+            .com
+        </label> -->
+    </div>
+    <div class="logo_right">
+        <label class="Applicant_login_btn">
+            <a th:href="@{/login}">
+                Applicant Login
+            </a>
+            <a th:href="@{/register}">
+                /Register
+            </a>
+        </label>
+        <label class="Recruiter_login_btn">
+            <a th:href="@{/login}">
+                Recruiter Login
+            </a>
+            <a th:href="@{/register}">
+                /Register
+            </a>
+
+        </label>
+    </div>
+</nav>
+
+
+</body>
+
+</html>
