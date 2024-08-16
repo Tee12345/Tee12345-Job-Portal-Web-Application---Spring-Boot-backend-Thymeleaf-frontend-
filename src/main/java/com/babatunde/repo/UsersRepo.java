@@ -3,8 +3,10 @@ package com.babatunde.repo;
 import com.babatunde.entity.*;
 import org.springframework.data.jpa.repository.*;
 
-public interface UsersRepo  extends JpaRepository<Users, Integer> {
+import java.util.*;
 
+public interface UsersRepo  extends JpaRepository<Users, Integer> {
+    Optional<Users> findUserByEmail(String email);
 
 
 }

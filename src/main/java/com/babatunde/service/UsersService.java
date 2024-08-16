@@ -2,8 +2,12 @@ package com.babatunde.service;
 
 import com.babatunde.entity.*;
 
-public interface UsersService {
+import java.util.*;
 
+public interface UsersService {
     public Users saveUser (Users users);
+    public Optional<Users> getUserByEmail(String email);
+
+
 
 }

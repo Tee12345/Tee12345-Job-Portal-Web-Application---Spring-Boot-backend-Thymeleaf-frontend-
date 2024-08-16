@@ -50,7 +50,17 @@
                                     th:object="${user}"
                                     method="post"
                             >
-                                <div class="box-body bozero mx2p">
+                                <div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div th:if="${badRequest}" class="alert alert-danger" role="alert">
+                                                        <p th:text="${badRequest}"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
