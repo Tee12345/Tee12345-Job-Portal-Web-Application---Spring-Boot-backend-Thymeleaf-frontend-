@@ -12,6 +12,7 @@ public class CandidateDetails {
 
     @Id
     private int userAccountId;
+    public CandidateDetails() {}
 
     @OneToOne
     @JoinColumn(name = "user_account_id")

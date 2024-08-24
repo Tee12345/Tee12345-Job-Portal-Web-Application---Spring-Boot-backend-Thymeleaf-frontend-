@@ -2,11 +2,17 @@ package com.babatunde.controller;
 
 import com.babatunde.entity.*;
 import com.babatunde.service.*;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.*;
 import org.springframework.beans.factory.annotation.*;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.*;
 import org.springframework.ui.*;
 import org.springframework.web.bind.annotation.*;
+
 
 import java.util.*;
 
@@ -22,10 +28,10 @@ public class UserController {
         this.usersService = usersService;
     }
 
-    @GetMapping("/login")
+   /* @GetMapping("/login")
     public String loginPage() {
         return "login";
-    }
+    } */
 
     @GetMapping("/register")
     public String registrationPage(Model model) {
@@ -48,9 +54,22 @@ public class UserController {
             model.addAttribute("user", new Users());
             return "register";
         }
-
         usersService.saveUser(users);
         return "console";
+    }
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest request, HttpServletResponse response) {
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if(authentication != null) {
+            new SecurityContextLogoutHandler().logout(request, response, authentication);
+        }
+        return "redirect:/";
     }
 
 }

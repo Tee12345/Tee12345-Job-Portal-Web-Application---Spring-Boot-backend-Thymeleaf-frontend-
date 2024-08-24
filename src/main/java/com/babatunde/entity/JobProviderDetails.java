@@ -11,6 +11,8 @@ public class JobProviderDetails {
     @Id
     private int userAccountId;
 
+    public JobProviderDetails() {}
+
     @OneToOne
     @JoinColumn(name = "user_account_id")
     @MapsId
