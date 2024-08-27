@@ -22,10 +22,17 @@ public class JobProviderDetails {
     private String lastName;
     private String city;
     private String state;
+    private String country;
     private String company;
     @Column(nullable = true, length = 64)
     private String profilePhoto;
 
+    @Transient
+    public String getPhotosImagePath() {
+        if(profilePhoto == null) return null;
+        return "/photos/provider/" + userAccountId + "/" + profilePhoto;
+
+    }
     public JobProviderDetails(Users users) {
         this.userId = users;
     }

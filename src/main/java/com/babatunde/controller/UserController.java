@@ -55,7 +55,7 @@ public class UserController {
             return "register";
         }
         usersService.saveUser(users);
-        return "console";
+        return "redirect:/console/";
     }
     @GetMapping("/login")
     public String login() {
