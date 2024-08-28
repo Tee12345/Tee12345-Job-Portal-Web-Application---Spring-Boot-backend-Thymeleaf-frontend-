@@ -58,8 +58,8 @@ public class UsersServiceImpl implements UsersService {
 
         if(!(authentication instanceof AnonymousAuthenticationToken)) {
             String username = authentication.getName();
-            Users users = usersRepo.findUserByEmail(username)
-                    .orElseThrow(() -> new UsernameNotFoundException("User not found "));
+            Users users = usersRepo.findUserByEmail(username).orElseThrow(()
+                    -> new UsernameNotFoundException("User not found "));
             int userId = users.getUserId();
             if(authentication.getAuthorities().contains(new SimpleGrantedAuthority("Recruiter"))) {
                 JobProviderDetails jobProviderDetails = jobProviderDetailsRepo.findById(userId)
@@ -70,6 +70,20 @@ public class UsersServiceImpl implements UsersService {
                         .orElse(new CandidateDetails());
                 return candidateDetails;
             }
+        }
+        return null;
+    }
+
+    @Override
+    public Users getCurrentUser() {
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if(!(authentication instanceof AnonymousAuthenticationToken)) {
+            String username = authentication.getName();
+            Users user = usersRepo.findUserByEmail(username)
+                    .orElseThrow(() -> new UsernameNotFoundException("User not found "));
+            return user;
         }
         return null;
     }
