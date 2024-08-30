@@ -11,7 +11,8 @@ import java.util.*;
 public class CandidateDetails {
 
     @Id
-    private int userAccountId;
+    private Integer userAccountId;
+
     public CandidateDetails() {}
 
     @OneToOne
@@ -37,5 +38,9 @@ public class CandidateDetails {
         this.userId = users;
     }
 
-
+    @Transient
+    public String getPhotosImagePath() {
+        if (profilePhoto == null || userAccountId == null) return null;
+        return "photos/candidate/" + userAccountId + "/" + profilePhoto;
+    }
 }

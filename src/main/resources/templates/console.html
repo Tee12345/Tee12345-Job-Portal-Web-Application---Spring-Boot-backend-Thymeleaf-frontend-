@@ -36,8 +36,7 @@
 
             <li class="nav-item active">
                 <a sec:authorize="hasAuthority('Job Seeker')" class="nav-link" th:href="@{/console/}"
-                ><i class="fas fa-search"></i>Search for Jobs</a
-                >
+                ><i class="fas fa-search"></i>Search for Jobs</a>
             </li>
             <li class="nav-item ">
                 <a sec:authorize="hasAuthority('Job Seeker')" class="nav-link" th:href="@{/saved-jobs/}">
@@ -115,14 +114,12 @@
                                             class="title-span"
                                             sec:authorize="hasAuthority('Job Seeker')"
                                             th:if="${jobPost.isActive == true}"
-                                    >(Applied)</span
-                                    >
+                                    >(Applied)</span>
                                     <span
                                             class="title-span"
                                             sec:authorize="hasAuthority('Job Seeker')"
                                             th:if="${jobPost.isSaved == true}"
-                                    >(Saved)</span
-                                    >
+                                    >(Saved)</span>
                                 </label>
                             </div>
                             <div class="col-md-4 text-center">
@@ -134,8 +131,7 @@
                             </div>
                             <div class="col-md-4 text-right">
                                 <label th:text="@{${jobPost.jobCompanyId.name}}"
-                                >Recruiter Company Name</label
-                                >
+                                >Recruiter Company Name</label>
                             </div>
                         </div>
                     </div>

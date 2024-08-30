@@ -17,4 +17,11 @@ public class Company {
     private String name;
     private String logo;
 
+    public Company() {}
+
+    public Company(Integer id, String name, String logo) {
+        this.id = id;
+        this.name = name;
+        this.logo = logo;
+    }
 }

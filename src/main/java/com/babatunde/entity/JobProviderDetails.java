@@ -1,7 +1,7 @@
 package com.babatunde.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Data;
 
 @Entity
 @Table(name = "job_provider_details")
@@ -31,11 +31,9 @@ public class JobProviderDetails {
     public String getPhotosImagePath() {
         if(profilePhoto == null) return null;
         return "/photos/provider/" + userAccountId + "/" + profilePhoto;
-
     }
+
     public JobProviderDetails(Users users) {
         this.userId = users;
     }
-
-
 }

@@ -58,17 +58,17 @@ public class JobProviderDetailsController {
             String currentUserName = authentication.getName();
             Users users = userRepo.findUserByEmail(currentUserName).orElseThrow(()
                     -> new UsernameNotFoundException("User not in our database"));
+
             jobProviderDetails.setUserId(users);
             jobProviderDetails.setUserAccountId(users.getUserId());
         }
-            model.addAttribute("profile", jobProviderDetails);
+        model.addAttribute("profile", jobProviderDetails);
         String fileName = "";
         if(!multipartFile.getOriginalFilename().equals("")) {
             fileName = StringUtils.cleanPath(Objects.requireNonNull(multipartFile.getOriginalFilename()));
             jobProviderDetails.setProfilePhoto(fileName);
         }
         JobProviderDetails savedUser = jobProviderDetailsService.saveProvider(jobProviderDetails);
-
         String dirForUpload = "photos/provider/" + savedUser.getUserAccountId();
         try{
             FileUploadUtil.saveFile(dirForUpload,fileName, multipartFile);
