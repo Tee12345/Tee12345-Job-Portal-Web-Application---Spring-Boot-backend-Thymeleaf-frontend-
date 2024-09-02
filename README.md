@@ -1,4 +1,4 @@
-This is job portal application's backend is built with spring boot
+This job portal application's backend is built with spring boot
 and it's frontend is designed with thymeleaf. This application has two
 types of users, job provider(recruiter) and job seeker(candidate).
 Both users-type can register accounts, the job provider can post jobs,
