@@ -4,19 +4,19 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "experience")
+@Table(name = "skills")
 @Data
-public class Experience {
+public class Skills {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int id;
+    public Integer id;
 
     private String name;
     private String experienceLevel;
     private String yearsOfExperience;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "candidate_details")
+    @JoinColumn(name = "job_seeker_profile")
     private CandidateDetails candidateDetails;
 }

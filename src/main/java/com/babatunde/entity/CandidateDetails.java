@@ -31,11 +31,11 @@ public class CandidateDetails {
     @Column(nullable = true, length = 64)
     private String profilePhoto;
 
-    @OneToMany(targetEntity = Experience.class, cascade = CascadeType.ALL, mappedBy = "candidateDetails")
-    private List<Experience> experiences;
+    @OneToMany(targetEntity = Skills.class, cascade = CascadeType.ALL, mappedBy = "candidateDetails")
+    private List<Skills> skills;
 
-    public CandidateDetails(Users users) {
-        this.userId = users;
+    public CandidateDetails(Users usersId) {
+        this.userId = usersId;
     }
 
     @Transient
