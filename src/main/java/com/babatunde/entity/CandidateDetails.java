@@ -13,7 +13,8 @@ public class CandidateDetails {
     @Id
     private Integer userAccountId;
 
-    public CandidateDetails() {}
+    public CandidateDetails() {
+    }
 
     @OneToOne
     @JoinColumn(name = "user_account_id")
@@ -43,4 +44,6 @@ public class CandidateDetails {
         if (profilePhoto == null || userAccountId == null) return null;
         return "photos/candidate/" + userAccountId + "/" + profilePhoto;
     }
+
 }
+

@@ -10,8 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class JobMessageBoardService {
@@ -44,5 +46,15 @@ public class JobMessageBoardService {
     public JobMessageBoard getOne(int id) {
 
         return jobMessageBoardRepo.findById(id).orElseThrow(() -> new UsernameNotFoundException("Job post not available"));
+    }
+
+    public List<JobMessageBoard> getAll() {
+        return jobMessageBoardRepo.findAll();
+    }
+
+    public List<JobMessageBoard> search(String job, String location, List<String> type, List<String> remote, LocalDate searchDate) {
+
+        return Objects.isNull(searchDate) ? jobMessageBoardRepo.searchWithoutDate(job, location, remote, type) :
+                jobMessageBoardRepo.search(job, location, remote, type, searchDate);
     }
 }

@@ -10,4 +10,6 @@ public interface UsersService {
      Object getCurrentUserProfile();
 
     Users getCurrentUser();
+
+    Optional<Users> findByEmail(String currentUsername);
 }

@@ -118,7 +118,6 @@ public class CandidateDetailsController {
         }
 
         return "redirect:/console/";
-
     }
 
 }

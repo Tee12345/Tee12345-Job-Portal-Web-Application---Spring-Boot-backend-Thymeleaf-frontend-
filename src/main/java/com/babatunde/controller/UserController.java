@@ -28,11 +28,6 @@ public class UserController {
         this.usersService = usersService;
     }
 
-   /* @GetMapping("/login")
-    public String loginPage() {
-        return "login";
-    } */
-
     @GetMapping("/register")
     public String registrationPage(Model model) {
 

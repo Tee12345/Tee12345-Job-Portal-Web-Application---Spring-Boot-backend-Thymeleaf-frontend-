@@ -11,7 +11,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.*;
 import org.springframework.stereotype.*;
 
-import java.time.*;
 import java.util.*;
 
 @Service
@@ -86,6 +85,11 @@ public class UsersServiceImpl implements UsersService {
             return user;
         }
         return null;
+    }
+
+    public Optional<Users> findByEmail(String currentUsername) {
+        return Optional.ofNullable(usersRepo.findUserByEmail(currentUsername).orElseThrow(()
+                -> new UsernameNotFoundException("this user in not in out database")));
     }
 
 
