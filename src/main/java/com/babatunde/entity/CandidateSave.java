@@ -32,4 +32,5 @@ public class CandidateSave implements Serializable {
     @JoinColumn(name = "job", referencedColumnName = "jobPostId")
     private JobMessageBoard job;
 
+
 }

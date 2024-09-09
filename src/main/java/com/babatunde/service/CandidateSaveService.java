@@ -25,5 +25,8 @@ public class CandidateSaveService {
         return candidateSaveRepo.findByJob(job);
     }
 
+    public void addNew(CandidateSave candidateSave) {
+         candidateSaveRepo.save(candidateSave);
+    }
 
 }
