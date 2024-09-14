@@ -8,5 +8,10 @@ download candidate's resume.
 The candidate can apply for jobs, view saved jobs, edit his or her 
 account's profile and upload resume.
 
+### App Security
+* Spring boot SecurityFilterChain was used to accept an instance of 
+AuthenticationProvider, a DaoAuthenticationProvider.
+* Password are encrypted with PasswordEncoder, a BCryptPasswordEncoder.
+
 ### GitHub Workflow
 The GitHub branches in this project are in a progressive order.
